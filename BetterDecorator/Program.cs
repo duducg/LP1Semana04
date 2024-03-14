@@ -31,6 +31,14 @@ namespace BetterDecorator
 
             
         }
+        private static string out_ = "User did not specify args!";
+        
+        /// <summary>
+        /// Takes in no arguments.
+        /// </summary>
+        /// <returns>A custom error string</returns>
+        private static string Decor() => Decor(out_,'=',3);
+
         /// <summary>
         /// Takes in a string, a char and an int argument.
         /// </summary>
@@ -51,8 +59,7 @@ namespace BetterDecorator
             return output;
 
         }
-        private static string out_ = "User did not specify args!"; 
-        private static string Decor() => Decor(out_,'=',3);
+        
             
 
     }
