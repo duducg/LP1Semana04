@@ -12,12 +12,22 @@ namespace BetterDecorator
     /// <param name="args">string array passed in via CMD</param>
         private static void Main(string[] args)
         {
+            string out_ = "";
+            
+            if (args.Length == 0)
+            {
+                out_ = Decor();
+            } 
+            else
+            {
+                string s_ = args[0];
+                char dec_ = char.Parse(args[1]);
+                int rep_ = int.Parse(args[2]);
+                out_ = Decor(s_, dec_, rep_);
+            }
+            
 
-            string s_ = args[0];
-            char dec_ = char.Parse(args[1]);
-            int rep_ = int.Parse(args[2]);
-
-            Console.WriteLine(Decor(s_, dec_, rep_));            
+            Console.WriteLine(out_);            
 
             
         }
@@ -28,19 +38,22 @@ namespace BetterDecorator
         /// <param name="dec">chars that will repeat</param>
         /// <param name="rep">Number of repetitions for the char</param>
         /// <returns>An interpolated string</returns>
-            private static string Decor(string s, char dec, int rep)
+        private static string Decor(string s, char dec, int rep)
+        {
+            //build the prefix and suffix
+            string pre_suff = "";
+            for (int i = 0; i < rep; i++)
             {
-                //build the prefix and suffix
-                string pre_suff = "";
-                for (int i = 0; i < rep; i++)
-                {
-                    pre_suff += dec;
-                }
-                string output = $"{pre_suff} {s} {pre_suff}";
-                
-                return output;
-
+                pre_suff += dec;
             }
+            string output = $"{pre_suff} {s} {pre_suff}";
+
+            return output;
+
+        }
+        private static string out_ = "User did not specify args!"; 
+        private static string Decor() => Decor(out_,'=',3);
+            
 
     }
 }
