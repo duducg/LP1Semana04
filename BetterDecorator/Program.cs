@@ -1,7 +1,9 @@
 ﻿using System;
 
 namespace BetterDecorator
-{
+{/// <summary>
+/// Contains the static "Main" and "Decor" methods.
+/// </summary>
     class Program
     
     {/// <summary>
